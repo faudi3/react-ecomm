@@ -1,0 +1,33 @@
+ul,li {
+  margin:0;
+  padding:0;
+}
+.categories {
+  display: inline-flex;
+  color:white;
+  margin: 20px auto;
+  justify-content: center;
+  background-color: rgb(37,42,49);
+
+  border-radius: 20px;
+  font-size: 24px;
+  .categories:hover {
+    cursor:pointer;
+  }
+  .categories__title {
+
+    padding: 5px;
+    text-align: center;
+    font-weight: normal;
+    margin: 7px;
+    list-style-type: none;
+  }.categories__title:hover {
+    cursor: pointer;
+     }
+  .active {
+    background-color: #626262;
+    border-radius: 20px;
+    padding: 5px;
+    margin: 7px;
+  }
+}

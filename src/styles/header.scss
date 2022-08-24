@@ -6,8 +6,9 @@
     transform: rotate(360deg);
   }
 }
-h1,h2,h3,h4,h5,p {
+h1,h2,h3,h4,h5,p,li {
   margin: 0;
+  padding: 0;
 }
 body {
   margin: 0;
@@ -51,8 +52,13 @@ body {
     background: rgb(47,48,54);
     border-radius: 10px;
     margin-right: 30px;
-    font-size: 28px;
+    font-size: 24px;
     border: 1px solid #626262;
+    font-weight: normal
+  }
+  .header__cart:hover {
+    border: 1px solid white;
+    cursor: pointer;
   }
   .header__cart-left {
     display: flex;

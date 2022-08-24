@@ -1,0 +1,99 @@
+
+ [
+  {
+    "id": 0,
+    "title" : "SDMN Varsity Hoodie Black Orange Print",
+    "for" : "mens",
+    "price": 495,
+    "category" : 1,
+    "img" : "https://cdn.shopify.com/s/files/1/1078/8124/products/BlackOrangeHood1_900x.png?v=1657552446"
+  },
+  {
+    "id": 1,
+    "title" : "SDMN Varsity Hoodie Melange Grey",
+    "for" : "mens",
+    "price": 510,
+    "category" : 1,
+    "img": "https://cdn.shopify.com/s/files/1/1078/8124/products/GreyGreenHood1_900x.png?v=1657553184"
+  },
+   {
+     "id": 2,
+     "title" : "XIX WORLD Hoodie For Women 19 Collection",
+     "for" : "womens",
+     "price": 520,
+     "category" : 1,
+     "img" : "https://cdn.shopify.com/s/files/1/1078/8124/products/XIXWORLDWomensHoodie1_900x.png?v=1631897144"
+   },
+   {
+     "id": 3,
+     "title" : "SDMN Varsity Hoodie Off White Red Print",
+     "for" : "mens",
+     "price": 485,
+     "category" : 1,
+     "img" : "https://cdn.shopify.com/s/files/1/1078/8124/products/OffWhiteRedHood1_900x.png?v=1657554270"
+   },
+   {
+     "id": 4,
+     "title" : "SDMN Two Tone Leggings",
+     "for" : "womens",
+     "price": 400,
+     "category" : 2,
+     "img" : "https://cdn.shopify.com/s/files/1/1078/8124/products/TwoToneLeggings1_900x.png?v=1628269191"
+   },
+   {
+     "id": 5,
+     "title" : "SDMN x Ellesse Galassia Track Pant",
+     "for" : "mens",
+     "price": 420,
+     "category" : 2,
+     "img" : "https://cdn.shopify.com/s/files/1/1078/8124/products/SDMNxEllesseBottoms1_900x.png?v=1630599919"
+   },
+   {
+     "id": 6,
+     "title" : "SDMN Lounge Shorts Pastel Blue",
+     "for" : "mens",
+     "price": 310,
+     "category" : 3,
+     "img" : "https://cdn.shopify.com/s/files/1/1078/8124/products/PastelBluePartitionShorts_900x.png?v=1643738290"
+   },
+   {
+     "id": 7,
+     "title" : "SDMN Two Tone Shorts",
+     "for" : "womens",
+     "price": 310,
+     "category" : 3,
+     "img" : "https://cdn.shopify.com/s/files/1/1078/8124/products/TwoToneWomensShorts1_900x.png?v=1626796282"
+   },
+   {
+     "id": 8,
+     "title" : "SDMN Partition Windbreaker",
+     "for" : "mens",
+     "price": 1310,
+     "category" : 5,
+     "img" : "https://cdn.shopify.com/s/files/1/1078/8124/products/SDMNPartitionWindbreaker1_900x.png?v=1628268832"
+   },
+   {
+     "id": 9,
+     "title" : "XIX WORLD Puffer Coat",
+     "for" : "mens",
+     "price": 1210,
+     "category" : 5,
+     "img" : "https://cdn.shopify.com/s/files/1/1078/8124/products/XIXWorldPufferJacket1_recycleicon_900x.png?v=1631897118"
+   },
+   {
+     "id": 10,
+     "title" : "SDMN Reflective Puffer Coat",
+     "for" : "womens",
+     "price": 1110,
+     "category" : 5,
+     "img" : "https://cdn.shopify.com/s/files/1/1078/8124/products/SDMNPufferCoat1sustainablematerials_900x.png?v=1628268821"
+   },
+   {
+     "id": 11,
+     "title" : "SDMN White Neckwarmer",
+     "for" : "womens",
+     "price": 210,
+     "category" : 5,
+     "img" : "https://cdn.shopify.com/s/files/1/1078/8124/products/NeckwarmerWhite_900x.png?v=1644428650"
+   }
+ ]
