@@ -16,7 +16,7 @@ function App() {
       </div>
       <div className={"content"}>
         {clothes.map((obj) => (
-          <Card {...obj} />
+          <Card {...obj} key={obj.id} />
         ))}
       </div>
     </div>

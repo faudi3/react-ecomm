@@ -5,23 +5,45 @@
   justify-content: center;
   background-color: rgb(37,42,49);
   border-radius: 20px;
-
+  position: relative;
+  text-align: center;
+  cursor: pointer;
   .sort__title {
     padding: 5px;
     text-align: center;
     font-weight: normal;
     margin: 7px;
     font-size: 24px;
+
+
   }
   .active {
     background-color: #626262;
     border-radius: 20px;
-    padding: 5px;
-    margin: 7px;
+    padding: 3px;
+    margin: 3px;
+    text-align: center;
+  }
+}
+
+.sort__popup {
+  position: absolute;
+  display:flex;
+  flex-direction: column;
+  top: 60px;
+  background-color: rgb(37,42,49);
+  min-width: 150px;
+  border-radius: 20px;
+
+  span {
+    font-weight: normal;
+  }
+  span:hover {
+    background: gray;
+    border-radius: 20px;
   }
 }
 .upperline {
   display:flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  justify-content: space-between;
 }
