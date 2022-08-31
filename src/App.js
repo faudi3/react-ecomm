@@ -4,9 +4,19 @@ import React from "react";
 import Header from "./components/Header";
 import Categories from "./components/Categories";
 import Sort from "./components/Sort";
-import clothes from "./assets/clothes.json";
 
 function App() {
+  const [items, setItems] = React.useState([]);
+  React.useEffect(() => {
+    fetch("https://630f176d379256341887958d.mockapi.io/items")
+      .then((res) => {
+        return res.json();
+      })
+      .then((json) => {
+        setItems(json);
+      });
+  }, []);
+
   return (
     <div className="App">
       <Header />
@@ -15,7 +25,7 @@ function App() {
         <Sort />
       </div>
       <div className={"content"}>
-        {clothes.map((obj) => (
+        {items.map((obj) => (
           <Card {...obj} key={obj.id} />
         ))}
       </div>
