@@ -1,6 +1,4 @@
 import React from "react";
-/*import hoodie from "../img/clothes/hoodie1.webp";
-import hoodie2 from "../img/clothes/hoodie2.webp";*/
 
 const Card = (props) => {
   return (

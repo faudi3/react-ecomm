@@ -1,18 +1,19 @@
-ul,li {
+ul,li ,h1,h2,h3,h4,h5, p{
   margin:0;
   padding:0;
 }
 .categories {
-  display: inline-flex;
+
   color:white;
-  margin: 20px auto;
-  justify-content: center;
+
+
   background-color: rgb(37,42,49);
 
   border-radius: 20px;
   font-size: 24px;
   .categories:hover {
     cursor:pointer;
+
   }
   .categories__title {
 
@@ -23,6 +24,8 @@ ul,li {
     list-style-type: none;
   }.categories__title:hover {
     cursor: pointer;
+       background: gray;
+       border-radius: 20px;
      }
   .active {
     background-color: #626262;

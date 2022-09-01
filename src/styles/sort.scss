@@ -1,13 +1,14 @@
 .sort {
-  display: inline-flex;
+  display: flex;
   color:white;
-  margin: 20px auto;
+
   justify-content: center;
   background-color: rgb(37,42,49);
   border-radius: 20px;
   position: relative;
   text-align: center;
   cursor: pointer;
+  max-height: 60px;
   .sort__title {
     padding: 5px;
     text-align: center;
@@ -20,8 +21,7 @@
   .active {
     background-color: #626262;
     border-radius: 20px;
-    padding: 3px;
-    margin: 3px;
+
     text-align: center;
   }
 }
@@ -46,4 +46,6 @@
 .upperline {
   display:flex;
   justify-content: space-between;
+  margin: 20px ;
+  flex-wrap: wrap;
 }

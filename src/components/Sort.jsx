@@ -8,10 +8,8 @@ const Sort = () => {
     setOpen(!open);
   };
   return (
-    <div className={"sort"}>
-      <h2 className={"sort__title"} onClick={() => setOpen(!open)}>
-        sort by:{" "}
-      </h2>
+    <div className={"sort"} onClick={() => setOpen(!open)}>
+      <h2 className={"sort__title"}>sort by: </h2>
       <h2 className={"sort__title active"}>{sortItems[active]}</h2>
       {open && (
         <div className={"sort__popup"}>
