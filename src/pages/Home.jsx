@@ -3,6 +3,7 @@ import Skeleton from "../components/Skeleton";
 import Card from "../components/Card";
 import Categories from "../components/Categories";
 import Sort from "../components/Sort";
+import Search from "../components/Search";
 
 const Home = ({ searchValue, setSearchValue }) => {
   const [items, setItems] = React.useState([]);
@@ -38,6 +39,7 @@ const Home = ({ searchValue, setSearchValue }) => {
           value={categoryId}
           onClickCategory={(i) => setCategoryId(i)}
         />
+        <Search searchValue={searchValue} setSearchValue={setSearchValue} />
         <Sort value={sortType} onChangeSort={(i) => setSortType(i)} />
       </div>
       <div className={"content"}>

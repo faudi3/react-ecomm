@@ -6,21 +6,7 @@
     transform: rotate(360deg);
   }
 }
-h1,h2,h3,h4,h5,p,li {
-  margin: 0;
-  padding: 0;
-}
-a {
-  text-decoration: none;
-}
-body {
-  margin: 0;
-  background:  rgb(24,26,32) ;
 
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endColorstr="#043d49",GradientType=1);
-  height:100vh;
-  font-family: 'Nunito';
-}
 
 .header {
   width: 100%;
@@ -85,5 +71,14 @@ body {
 @media (max-width: 768px) {
   .header__title {
     font-size: 24px;
+  }
+}
+
+.header__theme {
+
+  display:flex;
+  align-items: center;
+  label {
+    margin-right:10px;
   }
 }
