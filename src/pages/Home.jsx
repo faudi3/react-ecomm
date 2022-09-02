@@ -7,9 +7,19 @@ import Sort from "../components/Sort";
 const Home = () => {
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
-
+  const [categoryId, setCategoryId] = React.useState(0); //categoryId
+  const [sortType, setSortType] = React.useState({
+    name: "price",
+    sort: "price",
+  }); //sortType
+  console.log(sortType);
   React.useEffect(() => {
-    fetch("https://630f176d379256341887958d.mockapi.io/items")
+    setIsLoading(true);
+    fetch(
+      `https://630f176d379256341887958d.mockapi.io/items?${
+        categoryId > 0 ? `category=${categoryId}` : ""
+      }&sortBy=${sortType.sort}&order=asc`
+    )
       .then((res) => {
         return res.json();
       })
@@ -20,12 +30,15 @@ const Home = () => {
         }, 1000);
       });
     window.scrollTo(0, 0);
-  }, []);
+  }, [categoryId, sortType]);
   return (
     <>
       <div className={"upperline"}>
-        <Categories />
-        <Sort />
+        <Categories
+          value={categoryId}
+          onClickCategory={(i) => setCategoryId(i)}
+        />
+        <Sort value={sortType} onChangeSort={(i) => setSortType(i)} />
       </div>
       <div className={"content"}>
         {isLoading
