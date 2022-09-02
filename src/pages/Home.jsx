@@ -4,7 +4,7 @@ import Card from "../components/Card";
 import Categories from "../components/Categories";
 import Sort from "../components/Sort";
 
-const Home = () => {
+const Home = ({ searchValue, setSearchValue }) => {
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
   const [categoryId, setCategoryId] = React.useState(0); //categoryId
@@ -30,7 +30,7 @@ const Home = () => {
         }, 1000);
       });
     window.scrollTo(0, 0);
-  }, [categoryId, sortType]);
+  }, [categoryId, sortType, searchValue]);
   return (
     <>
       <div className={"upperline"}>
@@ -43,7 +43,16 @@ const Home = () => {
       <div className={"content"}>
         {isLoading
           ? [...new Array(12)].map((_, index) => <Skeleton key={index} />)
-          : items.map((obj) => <Card key={obj.id} {...obj} />)}
+          : items
+              .filter((obj) => {
+                if (
+                  obj.title.toLowerCase().includes(searchValue.toLowerCase())
+                ) {
+                  return true;
+                }
+                return false;
+              })
+              .map((obj) => <Card key={obj.id} {...obj} />)}
       </div>
     </>
   );

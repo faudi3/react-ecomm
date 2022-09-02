@@ -1,0 +1,28 @@
+.root {
+  border: 1px solid grey;
+  padding: 12px 20px;
+  width:300px;
+  border-radius: 10px;
+  max-height: 30px;
+  font-size: 16px;
+  background-color: rgb(37,42,49);
+  color:white;
+}
+.img {
+  width:15px;
+  height:15px;
+  position:absolute;
+  top:15px;
+  right:20px;
+  cursor:pointer;
+  &:hover {
+    opacity:0.7;
+  }
+
+}
+
+.wrapper {
+  display: flex;
+
+  position:relative;
+}

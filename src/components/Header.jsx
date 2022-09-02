@@ -2,7 +2,8 @@ import React from "react";
 import logo from "../img/logo.png";
 import cart from "../img/cart.png";
 import { Link } from "react-router-dom";
-const Header = () => {
+import Search from "../components/Search";
+const Header = ({ searchValue, setSearchValue }) => {
   return (
     <div className={"header"}>
       <Link to={"/"}>
@@ -11,7 +12,7 @@ const Header = () => {
           <h1 className={"header__title"}>SDMN</h1>
         </div>
       </Link>
-
+      <Search searchValue={searchValue} setSearchValue={setSearchValue} />
       <Link to={"/cart"}>
         <div className={"header__cart"}>
           <div className={"header__cart-left"}>
