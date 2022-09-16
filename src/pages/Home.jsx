@@ -4,22 +4,32 @@ import Card from "../components/Card";
 import Categories from "../components/Categories";
 import Sort from "../components/Sort";
 import Search from "../components/Search";
+import { useSelector, useDispatch } from "react-redux";
+import { setCategoryId } from "../redux/slices/filterSlice";
 
 const Home = ({ searchValue, setSearchValue }) => {
+  const dispatch = useDispatch();
+  const categoryId = useSelector((state) => state.filter.categoryId);
+  const sortType = useSelector((state) => state.filter.sort.sortProperty);
+
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
-  const [categoryId, setCategoryId] = React.useState(0); //categoryId
-  const [sortType, setSortType] = React.useState({
-    name: "price",
-    sort: "price",
-  }); //sortType
-  console.log(sortType);
+  // const [categoryId, setCategoryId] = React.useState(0); //categoryId
+  // const [sortType, setSortType] = React.useState({
+  //   name: "price",
+  //   sort: "price",
+  // }); //sortType
+
+  const onClickCategory = (id) => {
+    dispatch(setCategoryId(id));
+  };
+
   React.useEffect(() => {
     setIsLoading(true);
     fetch(
       `https://630f176d379256341887958d.mockapi.io/items?${
         categoryId > 0 ? `category=${categoryId}` : ""
-      }&sortBy=${sortType.sort}&order=asc`
+      }&sortBy=${sortType}&order=asc`
     )
       .then((res) => {
         return res.json();
@@ -35,12 +45,9 @@ const Home = ({ searchValue, setSearchValue }) => {
   return (
     <>
       <div className={"upperline"}>
-        <Categories
-          value={categoryId}
-          onClickCategory={(i) => setCategoryId(i)}
-        />
+        <Categories value={categoryId} onClickCategory={onClickCategory} />
         <Search searchValue={searchValue} setSearchValue={setSearchValue} />
-        <Sort value={sortType} onChangeSort={(i) => setSortType(i)} />
+        <Sort />
       </div>
       <div className={"content"}>
         {isLoading

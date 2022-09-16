@@ -3,7 +3,7 @@ import logo from "../img/logo.png";
 import cart from "../img/cart.png";
 import { Link } from "react-router-dom";
 import ReactSwitch from "react-switch";
-import Search from "../components/Search";
+
 const Header = ({ searchValue, setSearchValue, toggleTheme, theme }) => {
   return (
     <div className={"header"}>

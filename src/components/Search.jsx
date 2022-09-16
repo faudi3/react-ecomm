@@ -12,9 +12,7 @@ const Search = ({ searchValue, setSearchValue }) => {
       {searchValue && (
         <img
           onClick={() => setSearchValue("")}
-          src={
-            "https://cdn.icon-icons.com/icons2/624/PNG/512/Delete-80_icon-icons.com_57340.png"
-          }
+          src={"https://cdn-icons-png.flaticon.com/512/3416/3416079.png"}
           className={styles.img}
         />
       )}
