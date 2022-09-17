@@ -1,7 +1,23 @@
 import React from "react";
 import styles from "../styles/cart.module.scss";
 import cart from "../img/cart.png";
+import { useDispatch, useSelector } from "react-redux";
+import CartItem from "../components/CartItem";
+import { clearItems, removeItem } from "../redux/slices/cartSlice";
+
 const Cart = (props) => {
+  const dispatch = useDispatch();
+  const { totalPrice, items } = useSelector((state) => state.cart);
+  const totalCount = items.reduce((sum, item) => sum + item.count, 0);
+
+  const onClickClear = () => {
+    if (window.confirm("Are you sure you want to clear?")) {
+      dispatch(clearItems());
+    }
+  };
+  if (!totalPrice) {
+    return <div>Car is empty</div>;
+  }
   return (
     <div className={styles.root}>
       <div className={styles.upperline}>
@@ -9,7 +25,7 @@ const Cart = (props) => {
           <img src={cart} />
           <h2>Cart</h2>
         </div>
-        <div className={styles.left}>
+        <div onClick={onClickClear} className={styles.left}>
           <img
             src={"https://cdn-icons-png.flaticon.com/512/3416/3416079.png"}
             height={35}
@@ -18,36 +34,11 @@ const Cart = (props) => {
         </div>
       </div>
       <div className={styles.items}>
-        <div className={styles.item}>
-          <img
-            className={styles.img}
-            src={
-              "https://cdn.shopify.com/s/files/1/1078/8124/products/BlackOrangeHood1_900x.png?v=1657552446"
-            }
-            height={70}
-          />
-          <span className={styles.name}>
-            a SDMN Varsity Hoodie Black Orange Print
-          </span>
-          <div className={styles.change}>
-            <img
-              src={"https://cdn-icons-png.flaticon.com/512/1053/1053155.png"}
-              height={25}
-            />
-            <span className={styles.amount}>2</span>
-            <img
-              src={"https://cdn-icons-png.flaticon.com/512/1053/1053167.png"}
-              height={25}
-            />
-          </div>
-          <span className={styles.price}>495</span>
-          <img
-            src={"https://cdn-icons-png.flaticon.com/512/1053/1053184.png"}
-            height={25}
-          />
-        </div>
+        {items.map((item) =>
+          item.count > 0 ? <CartItem key={item.id} {...item} /> : ""
+        )}
       </div>
-      <span className={styles.total}>Total 495 rub</span>
+      <span className={styles.total}>Total {totalPrice} rub</span>
     </div>
   );
 };
