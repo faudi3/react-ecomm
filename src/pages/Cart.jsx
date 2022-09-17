@@ -47,6 +47,7 @@ const Cart = (props) => {
           />
         </div>
       </div>
+      <span className={styles.total}>Total 495 rub</span>
     </div>
   );
 };

@@ -3,8 +3,10 @@ import logo from "../img/logo.png";
 import cart from "../img/cart.png";
 import { Link } from "react-router-dom";
 import ReactSwitch from "react-switch";
+import { useSelector } from "react-redux";
 
 const Header = ({ searchValue, setSearchValue, toggleTheme, theme }) => {
+  const { items, totalPrice } = useSelector((state) => state.cart);
   return (
     <div className={"header"}>
       <Link to={"/"}>
@@ -27,11 +29,12 @@ const Header = ({ searchValue, setSearchValue, toggleTheme, theme }) => {
               width={35}
               height={35}
               src={cart}
+              alt={"headert-cart"}
             />
-            <p> 3</p>
+            <p> {items.length}</p>
           </div>
           <div className={"header__cart-right"}>
-            <p className={"header__price"}>495</p>
+            <p className={"header__price"}>{totalPrice}</p>
             <p>rub</p>
           </div>
         </div>

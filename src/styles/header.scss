@@ -52,15 +52,16 @@
   .header__cart-left {
     display: flex;
     align-items: center;
-    margin-right: 20px;
-    margin-left: 5px;
+    padding: 10px;
+
     .header__cart-img {
       margin-right: 5px;
 
     }
   }
   .header__price {
-    margin-right: 5px;
+    padding:10px;
+
   }
   .header__cart-right {
     display: flex;
