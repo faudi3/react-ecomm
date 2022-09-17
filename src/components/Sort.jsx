@@ -6,7 +6,7 @@ function Sort() {
   const dispatch = useDispatch();
   const sort = useSelector((state) => state.filter.sort);
   const [open, setOpen] = React.useState(false);
-
+  const sortRef = React.useRef();
   const sortItems = [
     { name: "price", sortProperty: "price" },
     { name: "gender", sortProperty: "for" },
@@ -17,8 +17,21 @@ function Sort() {
     dispatch(setSort(i));
     setOpen(!open);
   };
+
+  React.useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (!event.path.includes(sortRef.current)) {
+        setOpen(false);
+      }
+    };
+    document.body.addEventListener("click", handleClickOutside);
+    return () => {
+      document.body.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className={"sort"} onClick={() => setOpen(!open)}>
+    <div ref={sortRef} className={"sort"} onClick={() => setOpen(!open)}>
       <h2 className={"sort__title"}>sort by: </h2>
       <h2 className={"sort__title active"}>{sort.name}</h2>
       {open && (
