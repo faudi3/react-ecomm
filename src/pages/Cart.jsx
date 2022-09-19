@@ -16,7 +16,7 @@ const Cart = (props) => {
     }
   };
   if (!totalPrice) {
-    return <div>Car is empty</div>;
+    return <div>Cart is empty</div>;
   }
   return (
     <div className={styles.root}>
@@ -33,12 +33,14 @@ const Cart = (props) => {
           <h2 className={styles.clear}>Clear</h2>
         </div>
       </div>
-      <div className={styles.items}>
-        {items.map((item) =>
-          item.count > 0 ? <CartItem key={item.id} {...item} /> : ""
-        )}
+      <div className={styles.wrap}>
+        <div className={styles.items}>
+          {items.map((item) =>
+            item.count > 0 ? <CartItem key={item.id} {...item} /> : ""
+          )}
+        </div>
+        <span className={styles.total}>Total {totalPrice} rub</span>
       </div>
-      <span className={styles.total}>Total {totalPrice} rub</span>
     </div>
   );
 };

@@ -9,12 +9,6 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    // addItem(state, action) {
-    //   state.items.push(action.payload);
-    //   state.totalPrice = state.items.reduce((sum, obj) => {
-    //     return (obj.price += sum);
-    //   }, 0);
-    // },
     addItem(state, action) {
       const findItem = state.items.find(
         (item) => item.id === action.payload.id
@@ -37,12 +31,7 @@ const cartSlice = createSlice({
         return obj.price * obj.count + sum;
       }, 0);
     },
-    // plusItem(state, action) {
-    //   const findItem = state.items.find((item) => item.id === action.payload);
-    //   if (findItem) {
-    //     findItem.count++;
-    //   }
-    // },
+
     minusItem(state, action) {
       const findItem = state.items.find((item) => item.id === action.payload);
       if (findItem) {

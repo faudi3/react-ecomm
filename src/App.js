@@ -19,8 +19,8 @@ function App() {
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className="App" id={theme}>
         <Header
-          searchValue={searchValue}
-          setSearchValue={setSearchValue}
+          // searchValue={searchValue}
+          // setSearchValue={setSearchValue}
           theme={theme}
           toggleTheme={toggleTheme}
         />
