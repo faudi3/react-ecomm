@@ -4,6 +4,7 @@ import React from "react";
 import Header from "./components/Header";
 import NotFound from "./pages/NotFound";
 import Cart from "./pages/Cart";
+import FullCard from "./pages/FullCard";
 import { Routes, Route } from "react-router-dom";
 
 export const ThemeContext = React.createContext(null);
@@ -18,12 +19,7 @@ function App() {
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className="App" id={theme}>
-        <Header
-          // searchValue={searchValue}
-          // setSearchValue={setSearchValue}
-          theme={theme}
-          toggleTheme={toggleTheme}
-        />
+        <Header theme={theme} toggleTheme={toggleTheme} />
 
         <Routes>
           <Route
@@ -33,6 +29,8 @@ function App() {
             }
           />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/cards/:id" element={<FullCard />} />
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

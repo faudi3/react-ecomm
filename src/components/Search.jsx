@@ -20,6 +20,7 @@ const Search = ({ searchValue, setSearchValue }) => {
           onClick={() => onClickClear()}
           src={"https://cdn-icons-png.flaticon.com/512/3416/3416079.png"}
           className={styles.img}
+          alt={"clear"}
         />
       )}
     </div>

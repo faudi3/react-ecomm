@@ -1,11 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addItem } from "../redux/slices/cartSlice";
+import { addItem, selectCartItemById } from "../redux/slices/cartSlice";
 const Card = (props) => {
   const dispatch = useDispatch();
-  const cartItem = useSelector((state) =>
-    state.cart.items.find((obj) => obj.id === props.id)
-  );
+  const cartItem = useSelector(selectCartItemById(props.id));
   const addedCount = cartItem ? cartItem.count : 0;
 
   const onClickAdd = () => {

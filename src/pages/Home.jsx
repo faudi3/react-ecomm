@@ -7,6 +7,7 @@ import Search from "../components/Search";
 import { useSelector, useDispatch } from "react-redux";
 import { setCategoryId, setFilters } from "../redux/slices/filterSlice";
 import { fetchClothes } from "../redux/slices/clothesSlice";
+import { Link } from "react-router-dom";
 
 const Home = ({ searchValue, setSearchValue }) => {
   const dispatch = useDispatch();
@@ -49,7 +50,11 @@ const Home = ({ searchValue, setSearchValue }) => {
       }
       return false;
     })
-    .map((obj) => <Card key={obj.id} {...obj} />);
+    .map((obj) => (
+      <Link key={obj.id} to={`/cards/${obj.id}`}>
+        <Card {...obj} />
+      </Link>
+    ));
 
   const skeletons = [...new Array(12)].map((_, index) => (
     <Skeleton key={index} />
