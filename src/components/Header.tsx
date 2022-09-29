@@ -6,7 +6,12 @@ import ReactSwitch from "react-switch";
 import { useSelector } from "react-redux";
 import { selectCart } from "../redux/slices/cartSlice";
 
-const Header = ({ toggleTheme, theme }) => {
+type HeaderProps = {
+  theme: string;
+  toggleTheme: (value: boolean) => string;
+};
+
+const Header: React.FC<HeaderProps> = ({ toggleTheme, theme }) => {
   const { items, totalPrice } = useSelector(selectCart);
   const totalCount = items.reduce(
     (sum: number, item: any) => sum + item.count,

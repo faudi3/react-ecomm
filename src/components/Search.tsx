@@ -1,8 +1,14 @@
 import React from "react";
 import styles from "../styles/search.module.scss";
 
-const Search: React.FC = ({ searchValue, setSearchValue }) => {
+type SearchProps = {
+  searchValue: string;
+  setSearchValue: (value: string) => void;
+};
+
+const Search: React.FC<SearchProps> = ({ searchValue, setSearchValue }) => {
   const inputRef = React.useRef<HTMLInputElement>(null);
+
   const onClickClear = () => {
     setSearchValue("");
     if (inputRef.current) {

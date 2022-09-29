@@ -7,8 +7,12 @@ import Cart from "./pages/Cart";
 import FullCard from "./pages/FullCard";
 import { Routes, Route } from "react-router-dom";
 
-export const ThemeContext = React.createContext(null);
+//  type ValueProps = {
+//   searchValue: string;
+//   setSearchValue: (value: string) => void;
+// }
 
+export const ThemeContext = React.createContext(null);
 function App() {
   const [searchValue, setSearchValue] = React.useState("");
 

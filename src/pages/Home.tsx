@@ -5,11 +5,16 @@ import Categories from "../components/Categories";
 import Sort from "../components/Sort";
 import Search from "../components/Search";
 import { useSelector, useDispatch } from "react-redux";
-import { setCategoryId, setFilters } from "../redux/slices/filterSlice";
+import { setCategoryId, setSort } from "../redux/slices/filterSlice";
 import { fetchClothes } from "../redux/slices/clothesSlice";
 import { Link } from "react-router-dom";
 
-const Home: React.FC = ({ searchValue, setSearchValue }) => {
+type HomeProps = {
+  searchValue: string;
+  setSearchValue: (value: string) => void;
+};
+
+const Home: React.FC<HomeProps> = ({ searchValue, setSearchValue }) => {
   const dispatch = useDispatch();
   const categoryId = useSelector((state) => state.filter.categoryId);
   const sortType = useSelector((state) => state.filter.sort.sortProperty);
