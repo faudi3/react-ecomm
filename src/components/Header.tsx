@@ -8,8 +8,11 @@ import { selectCart } from "../redux/slices/cartSlice";
 
 const Header = ({ toggleTheme, theme }) => {
   const { items, totalPrice } = useSelector(selectCart);
-  const totalCount = items.reduce((sum, item) => sum + item.count, 0);
-  const location = useLocation();
+  const totalCount = items.reduce(
+    (sum: number, item: any) => sum + item.count,
+    0
+  );
+  // const location = useLocation();
 
   return (
     <div className={"header"}>
@@ -23,26 +26,25 @@ const Header = ({ toggleTheme, theme }) => {
         <label>{theme === "light" ? "light mode" : "dark mode"}</label>
         <ReactSwitch onChange={toggleTheme} checked={theme === "dark"} />
       </div>
-      {location.pathname !== "/cart" && (
-        <Link to={"/cart"}>
-          <div className={"header__cart"}>
-            <div className={"header__cart-left"}>
-              <img
-                className="header__cart-img"
-                width={35}
-                height={35}
-                src={cart}
-                alt={"header-cart"}
-              />
-              <p> {totalCount}</p>
-            </div>
-            <div className={"header__cart-right"}>
-              <p className={"header__price"}>{totalPrice}</p>
-              <p>rub</p>
-            </div>
+
+      <Link to={"/cart"}>
+        <div className={"header__cart"}>
+          <div className={"header__cart-left"}>
+            <img
+              className="header__cart-img"
+              width={35}
+              height={35}
+              src={cart}
+              alt={"header-cart"}
+            />
+            <p> {totalCount}</p>
           </div>
-        </Link>
-      )}
+          <div className={"header__cart-right"}>
+            <p className={"header__price"}>{totalPrice}</p>
+            <p>rub</p>
+          </div>
+        </div>
+      </Link>
     </div>
   );
 };

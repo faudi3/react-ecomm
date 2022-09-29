@@ -12,7 +12,7 @@ export const ThemeContext = React.createContext(null);
 function App() {
   const [searchValue, setSearchValue] = React.useState("");
 
-  const [theme, setTheme] = React.useState("dark");
+  const [theme, setTheme] = React.useState<string>("dark");
   const toggleTheme = () => {
     setTheme((curr) => (curr === "light" ? "dark" : "light"));
   };

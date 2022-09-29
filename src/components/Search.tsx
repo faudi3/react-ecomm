@@ -1,10 +1,13 @@
 import React from "react";
 import styles from "../styles/search.module.scss";
-const Search = ({ searchValue, setSearchValue }) => {
-  const inputRef = React.useRef();
+
+const Search: React.FC = ({ searchValue, setSearchValue }) => {
+  const inputRef = React.useRef<HTMLInputElement>(null);
   const onClickClear = () => {
     setSearchValue("");
-    inputRef.current.focus();
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
   };
   return (
     <div className={styles.wrapper}>

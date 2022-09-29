@@ -9,13 +9,13 @@ import { setCategoryId, setFilters } from "../redux/slices/filterSlice";
 import { fetchClothes } from "../redux/slices/clothesSlice";
 import { Link } from "react-router-dom";
 
-const Home = ({ searchValue, setSearchValue }) => {
+const Home: React.FC = ({ searchValue, setSearchValue }) => {
   const dispatch = useDispatch();
   const categoryId = useSelector((state) => state.filter.categoryId);
   const sortType = useSelector((state) => state.filter.sort.sortProperty);
   const { items, status } = useSelector((state) => state.clothes);
 
-  const onClickCategory = (id) => {
+  const onClickCategory = (id: number) => {
     dispatch(setCategoryId(id));
   };
 
@@ -35,7 +35,9 @@ const Home = ({ searchValue, setSearchValue }) => {
   //       setIsLoading(false);
   //     });
   // }, [categoryId, sortType, searchValue]);
+
   const getClothes = async () => {
+    //@ts-ignore
     dispatch(fetchClothes({ categoryId, sortType }));
   };
 
@@ -44,13 +46,10 @@ const Home = ({ searchValue, setSearchValue }) => {
   }, [categoryId, sortType, searchValue]);
 
   const clothes = items
-    .filter((obj) => {
-      if (obj.title.toLowerCase().includes(searchValue.toLowerCase())) {
-        return true;
-      }
-      return false;
+    .filter((obj: any) => {
+      return obj.title.toLowerCase().includes(searchValue.toLowerCase());
     })
-    .map((obj) => (
+    .map((obj: any) => (
       <Link key={obj.id} to={`/cards/${obj.id}`}>
         <Card {...obj} />
       </Link>

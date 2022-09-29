@@ -6,8 +6,12 @@ import { useNavigate } from "react-router-dom";
 import styles from "../styles/fullCard.module.scss";
 //useparams and uselocation rerender if url string changes
 //useparams returns dynamic vars from url search (:id)
-function FullCard(props) {
-  const [card, setCard] = React.useState();
+function FullCard(): JSX.Element {
+  const [card, setCard] = React.useState<{
+    img: string;
+    title: string;
+    price: number;
+  }>();
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -27,11 +31,11 @@ function FullCard(props) {
   }, []);
 
   if (!card) {
-    return "loading";
+    return <>"loading"</>;
   }
   return (
     <div className={styles.container}>
-      <img className={styles.img} src={card.img} />
+      <img alt={"card image"} className={styles.img} src={card.img} />
       <h2 className={styles.title}>{card.title}</h2>
 
       <h3 className={styles.price}>{card.price} rub</h3>
