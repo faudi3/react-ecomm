@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setCategoryId, setSort } from "../redux/slices/filterSlice";
 import { fetchClothes } from "../redux/slices/clothesSlice";
 import { Link } from "react-router-dom";
-import { RootState } from "../redux/store";
+import { RootState, useAppDispatch } from "../redux/store";
 
 type HomeProps = {
   searchValue: string;
@@ -16,7 +16,7 @@ type HomeProps = {
 };
 
 const Home: React.FC<HomeProps> = ({ searchValue, setSearchValue }) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const categoryId = useSelector((state: RootState) => state.filter.categoryId);
   const sortType = useSelector(
     (state: RootState) => state.filter.sort.sortProperty
@@ -44,8 +44,7 @@ const Home: React.FC<HomeProps> = ({ searchValue, setSearchValue }) => {
   //     });
   // }, [categoryId, sortType, searchValue]);
 
-  const getClothes = async () => {
-    //@ts-ignore
+  const getClothes = () => {
     dispatch(fetchClothes({ categoryId, sortType }));
   };
 

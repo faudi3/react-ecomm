@@ -27,6 +27,8 @@ const Card: React.FC<CardProps> = ({ id, title, price, img, forg }) => {
       price: price,
       imageUrl: img,
       count: 0,
+      category: 0,
+      forg: "",
     };
     dispatch(addItem(item));
   };

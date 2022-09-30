@@ -12,33 +12,26 @@ import { Routes, Route } from "react-router-dom";
 //   setSearchValue: (value: string) => void;
 // }
 
-export const ThemeContext = React.createContext(null);
 function App() {
   const [searchValue, setSearchValue] = React.useState("");
 
-  const [theme, setTheme] = React.useState<string>("dark");
-  const toggleTheme = () => {
-    setTheme((curr) => (curr === "light" ? "dark" : "light"));
-  };
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <div className="App" id={theme}>
-        <Header theme={theme} toggleTheme={toggleTheme} />
+    <div className="App">
+      <Header />
 
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Home searchValue={searchValue} setSearchValue={setSearchValue} />
-            }
-          />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/cards/:id" element={<FullCard />} />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Home searchValue={searchValue} setSearchValue={setSearchValue} />
+          }
+        />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/cards/:id" element={<FullCard />} />
 
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </div>
-    </ThemeContext.Provider>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </div>
   );
 }
 

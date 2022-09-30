@@ -11,6 +11,8 @@ export type CartItem = {
   price: number;
   imageUrl: string;
   count: number;
+  category: number;
+  forg: string;
 };
 
 interface CartSliceState {
@@ -28,9 +30,7 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addItem(state, action: PayloadAction<CartItem>) {
-      const findItem = state.items.find(
-        (item) => item.id === action.payload.id
-      );
+      const findItem = state.items.find((item) => item.id == action.payload.id);
       if (findItem) {
         findItem.count++;
       } else {

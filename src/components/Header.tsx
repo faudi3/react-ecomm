@@ -1,23 +1,16 @@
 import React from "react";
 import logo from "../img/logo.png";
 import cart from "../img/cart.png";
-import { Link, useLocation } from "react-router-dom";
-import ReactSwitch from "react-switch";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectCart } from "../redux/slices/cartSlice";
 
-type HeaderProps = {
-  theme: string;
-  toggleTheme: (value: boolean) => string;
-};
-
-const Header: React.FC<HeaderProps> = ({ toggleTheme, theme }) => {
+const Header = () => {
   const { items, totalPrice } = useSelector(selectCart);
   const totalCount = items.reduce(
     (sum: number, item: any) => sum + item.count,
     0
   );
-  // const location = useLocation();
 
   return (
     <div className={"header"}>
@@ -28,8 +21,7 @@ const Header: React.FC<HeaderProps> = ({ toggleTheme, theme }) => {
         </div>
       </Link>
       <div className={"header__theme"}>
-        <label>{theme === "light" ? "light mode" : "dark mode"}</label>
-        <ReactSwitch onChange={toggleTheme} checked={theme === "dark"} />
+        <label></label>
       </div>
 
       <Link to={"/cart"}>

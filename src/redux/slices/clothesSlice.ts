@@ -1,7 +1,5 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
-import { RootState } from "../store";
-import { CartItem } from "./cartSlice";
 
 type FetchClothesArgs = Record<string, string | number>;
 
@@ -25,13 +23,19 @@ type Clothes = {
   imageUrl: string;
 };
 
+export enum Status {
+  LOADING = "loading",
+  SUCCESS = "success",
+  ERROR = "error",
+}
+
 interface ClothesSliceState {
   items: Clothes[];
-  status: "loading" | "success" | "error";
+  status: Status;
 }
 const initialState: ClothesSliceState = {
   items: [],
-  status: "loading",
+  status: Status.LOADING,
 };
 
 const clothesSlice = createSlice({
@@ -44,15 +48,15 @@ const clothesSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchClothes.pending, (state, action) => {
-      state.status = "loading";
+      state.status = Status.LOADING;
       state.items = [];
     });
     builder.addCase(fetchClothes.fulfilled, (state, action) => {
       state.items = action.payload;
-      state.status = "success";
+      state.status = Status.SUCCESS;
     });
     builder.addCase(fetchClothes.rejected, (state, action) => {
-      state.status = "error";
+      state.status = Status.ERROR;
       state.items = [];
     });
   },
