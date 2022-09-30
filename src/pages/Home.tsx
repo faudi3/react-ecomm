@@ -23,9 +23,13 @@ const Home: React.FC<HomeProps> = ({ searchValue, setSearchValue }) => {
   );
   const { items, status } = useSelector((state: RootState) => state.clothes);
 
-  const onClickCategory = (id: number) => {
+  const onClickCategory = React.useCallback((id: number) => {
     dispatch(setCategoryId(id));
-  };
+  }, []);
+
+  // const onClickCategory = (id: number) => {
+  //   dispatch(setCategoryId(id));
+  // };
 
   // React.useEffect(() => {
   //   setIsLoading(true);

@@ -9,8 +9,7 @@ type SortItem = {
 type PopupClick = MouseEvent & {
   path: Node[];
 };
-
-function Sort() {
+const Sort: React.FC = () => {
   const dispatch = useDispatch();
   const sort = useSelector(selectSort);
   const [open, setOpen] = React.useState(false);
@@ -58,6 +57,6 @@ function Sort() {
       )}
     </div>
   );
-}
+};
 
 export default Sort;
