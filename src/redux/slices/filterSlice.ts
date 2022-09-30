@@ -1,8 +1,9 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { RootState } from "../store";
+import { CartItem } from "./cartSlice";
 
 const initialState = {
   categoryId: 0,
-
   sort: {
     name: "price",
     sortProperty: "price",
@@ -13,7 +14,7 @@ const filterSlice = createSlice({
   name: "filters",
   initialState,
   reducers: {
-    setCategoryId(state, action) {
+    setCategoryId(state, action: PayloadAction<number>) {
       state.categoryId = action.payload;
     },
 
@@ -22,6 +23,6 @@ const filterSlice = createSlice({
     },
   },
 });
-
+export const selectSort = (state: RootState) => state.filter.sort;
 export const { setCategoryId, setSort } = filterSlice.actions;
 export default filterSlice.reducer;

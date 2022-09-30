@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setCategoryId, setSort } from "../redux/slices/filterSlice";
 import { fetchClothes } from "../redux/slices/clothesSlice";
 import { Link } from "react-router-dom";
+import { RootState } from "../redux/store";
 
 type HomeProps = {
   searchValue: string;
@@ -16,9 +17,11 @@ type HomeProps = {
 
 const Home: React.FC<HomeProps> = ({ searchValue, setSearchValue }) => {
   const dispatch = useDispatch();
-  const categoryId = useSelector((state) => state.filter.categoryId);
-  const sortType = useSelector((state) => state.filter.sort.sortProperty);
-  const { items, status } = useSelector((state) => state.clothes);
+  const categoryId = useSelector((state: RootState) => state.filter.categoryId);
+  const sortType = useSelector(
+    (state: RootState) => state.filter.sort.sortProperty
+  );
+  const { items, status } = useSelector((state: RootState) => state.clothes);
 
   const onClickCategory = (id: number) => {
     dispatch(setCategoryId(id));
