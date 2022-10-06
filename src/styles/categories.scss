@@ -1,3 +1,4 @@
+
 ul,li ,h1,h2,h3,h4,h5, p{
   margin:0;
   padding:0;
@@ -32,5 +33,23 @@ ul,li ,h1,h2,h3,h4,h5, p{
     border-radius: 20px;
     padding: 5px;
     margin: 7px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .categories {
+    font-size: 18px;
+  }
+  .categories__title {
+    padding: 2px;
+
+  }
+}
+@media screen and (max-width: 500px) {
+  .categories {
+    font-size: 14px;
+  }
+  .categories__title {
+    padding: 2px;
+
   }
 }

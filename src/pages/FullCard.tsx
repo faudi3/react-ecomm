@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "../styles/fullCard.module.scss";
 //useparams and uselocation rerender if url string changes
 //useparams returns dynamic vars from url search (:id)
+
 function FullCard(): JSX.Element {
   const [card, setCard] = React.useState<{
     img: string;
@@ -31,7 +32,7 @@ function FullCard(): JSX.Element {
   }, []);
 
   if (!card) {
-    return <>"loading"</>;
+    return <div className={styles.title}>loading</div>;
   }
   return (
     <div className={styles.container}>

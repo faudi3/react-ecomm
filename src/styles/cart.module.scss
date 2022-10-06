@@ -35,6 +35,7 @@
 
 .item {
   border: 2px solid grey;
+  margin:5px;
   display:flex;
   align-items: center;
   justify-content: space-around;
@@ -80,4 +81,16 @@
 
 .full {
   min-height:100vh;
+  color:white;
+  font-size:48px;
+}
+
+@media screen and (max-width: 580px) {
+  .item
+{
+  flex-direction: column;
+    font-size:14px;
+}
+
+
 }

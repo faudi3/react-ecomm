@@ -19,7 +19,7 @@ const Cart: React.FC = () => {
     }
   };
   if (!totalPrice) {
-    return <div className={styles.full}>Cart is empty</div>;
+    return <div className={styles.full}>Cart is empty :(</div>;
   }
   return (
     <div className={styles.root}>
