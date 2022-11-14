@@ -16,7 +16,7 @@ const Sort: React.FC = () => {
   const sortRef = React.useRef<HTMLDivElement>(null);
   const sortItems: SortItem[] = [
     { name: "price", sortProperty: "price" },
-    { name: "gender", sortProperty: "for" },
+
     { name: "alphabet", sortProperty: "title" },
   ];
 
